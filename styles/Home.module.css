@@ -1,10 +1,50 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 }
 
+.mainBox {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #303133;
+  font-size: 10vh;
+}
+
+.buttonContainer {
+  width: 100%;
+  padding: 20px;
+}
+
+.button {
+  border-radius: 10px;
+  border: #797979 solid 1px;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #303133;
+  font-size: large;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rgba(121, 121, 121, 0.2);
+}
+
+.button:active {
+  background-color: rgba(121, 121, 121, 0.5);
+}
+
+.setup {
+  width: 100%;
+  text-align: right;
+  color: #606266;
+  padding-right: 10px;
+}

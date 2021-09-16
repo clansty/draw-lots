@@ -1,11 +1,16 @@
 import styles from '../styles/Setup.module.css'
-import {ChangeEvent, useState} from 'react'
+import {ChangeEvent, useEffect, useState} from 'react'
 import splitLines from '../utils/splitLines'
 import {useRouter} from 'next/router'
 
 export default function Setup() {
     const [input, setInput] = useState('')
     const router = useRouter()
+
+    useEffect(() => {
+        const names = localStorage.getItem('names')
+        names && setInput(names)
+    }, [])
 
     return <div className={styles.container}>
         <p className={styles.title}>
