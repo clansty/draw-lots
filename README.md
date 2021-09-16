@@ -1,34 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Draw Lots
 
-## Getting Started
+抽签经典复刻——React Web 重制版
 
-First, run the development server:
+## 本项目起因
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![和以前老师的会话](https://cdn.lwqwq.com/pic/image-20210916183641222.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+大概是高二的时候，我做过一个随机抽人软件，从最初的易语言版变为 UWP 版，从只能显示学号慢慢支持姓名再支持了 QQ 头像。但是由于当时技术比较差，做出来可移植性不好（名单是写死的），C# UWP 又编译麻烦，就没有再流传下来也没有开源。
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 用法
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+在班级电脑上打开 <https://lots.lwqwq.com/> 就可以直接使用了。导入的名单保存在浏览器的 Local Storage 里面，并不会上传到服务器。除了下载应用本体之外也不需要和服务器通信什么数据。
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+功能就是简单的从名单里随机选一个人，名单有空行也没关系，能自动过滤掉。并不能显示 QQ 头像，也没有当年 UWP 版的毛玻璃背景。
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
