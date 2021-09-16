@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.0
+        with:
+          cache: yarn
+
+      - name: Install deps
+        run: yarn install
+
+      - name: Generate static pages
+        run: yarn build
+
+      - name: Purge useless contents
+        run: rm out/404.html
+
+      - name: Upload COS
+        uses: TencentCloud/cos-action@v1
+        with:
+          secret_id: ${{ secrets.SECRET_ID }}
+          secret_key: ${{ secrets.SECRET_KEY }}
+          cos_bucket: ${{ secrets.BUCKET }}
+          cos_region: ${{ secrets.REGION }}
+          local_path: out
+          remote_path: /
+          clean: true
+
+      - name: Purge CDN cache
+        uses: keithnull/tencent-cloud-cdn-purge-cache@v1.0
+        env:
+          SECRET_ID: ${{ secrets.SECRET_ID}}
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          PATHS: "https://lwqwq.com/"
+          FLUSH_TYPE: "flush"
