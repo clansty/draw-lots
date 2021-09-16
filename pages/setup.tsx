@@ -27,12 +27,13 @@ export default function Setup() {
             <textarea
                 className={styles.inputBox}
                 value={input} onChange={handleInput}
+                title="名单编辑框"
             />
         </div>
         <div className={styles.buttonContainer}>
-            <a className={styles.button} onClick={done}>
+            <div className={styles.button} onClick={done} tabIndex={0} role="button">
                 完成
-            </a>
+            </div>
         </div>
     </div>
 

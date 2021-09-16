@@ -33,9 +33,9 @@ const Home: NextPage = () => {
                 {guy}
             </div>
             <div className={styles.buttonContainer}>
-                <a className={styles.button} onClick={draw}>
+                <div className={styles.button} onClick={draw} tabIndex={0} role="button">
                     抽签
-                </a>
+                </div>
             </div>
         </div>
     )
