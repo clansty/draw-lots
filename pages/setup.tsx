@@ -2,6 +2,7 @@ import styles from '../styles/Setup.module.css'
 import {ChangeEvent, useEffect, useState} from 'react'
 import splitLines from '../utils/splitLines'
 import {useRouter} from 'next/router'
+import Head from 'next/head'
 
 export default function Setup() {
     const [input, setInput] = useState('')
@@ -13,6 +14,9 @@ export default function Setup() {
     }, [])
 
     return <div className={styles.container}>
+        <Head>
+            <title>名单配置</title>
+        </Head>
         <p className={styles.title}>
             导入名单
         </p>
