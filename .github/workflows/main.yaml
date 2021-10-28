@@ -1,8 +1,7 @@
 name: CI
 on:
-  push:
-    branches:
-      - main
+  - push
+  - workflow_dispatch
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,9 +19,6 @@ jobs:
       - name: Generate static pages
         run: yarn build
 
-      - name: Purge useless contents
-        run: rm out/404.html
-
       - name: Upload COS
         uses: TencentCloud/cos-action@v1
         with:
@@ -39,5 +35,5 @@ jobs:
         env:
           SECRET_ID: ${{ secrets.SECRET_ID}}
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
-          PATHS: "https://lwqwq.com/"
+          PATHS: "https://lots.lwqwq.com/"
           FLUSH_TYPE: "flush"
